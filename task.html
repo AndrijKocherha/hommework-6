@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nullstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>task1</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="page__container task">
+        <div class="task__condition text">
+          6. На складі зберігається певна кількість ящиків з яблуками (наприклад, 15). Коли під’їде машина для завантаження, попросити користувача ввести, скільки ящиків
+          завантажити у першу машину, у другу і т. д., поки на складі не закінчаться ящики з яблуками. Передбачити той випадок, коли користувач вводить кількість, що
+          перевищує поточну кількість ящиків на складі.
+        </div>
+        <script>
+          let amountOfBoxes = 15
+          let amountOfTrack = 1
+          let restOfBoxes
+          startOfWork: do {
+            let boxesInTrack = parseInt(prompt(`скільки ящиків загрузити в ${amountOfTrack} грузовик`))
+            if (boxesInTrack > amountOfBoxes) {
+              alert(`вибачте але ви ввели кіькість ящиків для загрузки яка перевищує кількість ящиків ${amountOfBoxes}`)
+              continue startOfWork
+            }
+            amountOfBoxes -= boxesInTrack
+            if (amountOfBoxes > 0) {
+              alert(`ще залишилось ${amountOfBoxes} ящиків`)
+            } else if (amountOfBoxes === 0) {
+              alert("робота зроблена ящики загружені")
+            }
+            amountOfTrack++
+          } while (amountOfBoxes > 0)
+        </script>
+      </div>
+    </main>
+  </body>
+</html>

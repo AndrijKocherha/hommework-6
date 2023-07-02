@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nullstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>task3</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="page__container task">
+        <div class="task__condition text">
+          8. Щоденно спортзал відвідує певна кількість людей. Користувач вводить такі дані: скільки людей відвідало спортзал за день та вік кожного відвідувача. Потрібно
+          вивести вік найстаршого та наймолодшого відвідувачів, а також середній вік всіх відвідувачів спортзалу за день.
+        </div>
+      </div>
+      <script>
+        let amoutOfJumMembers = parseInt(prompt("кількість відвідувачів цього дня"))
+        let sumOfAges = 0
+        let minAge = Infinity
+        let maxAge = -Infinity
+        for (let i = 0; i < amoutOfJumMembers; i++) {
+          let JumMemberAge = parseInt(prompt("скажіть ваш вік"))
+          sumOfAges += JumMemberAge
+          if (JumMemberAge > maxAge) maxAge = JumMemberAge
+          if (JumMemberAge < minAge) minAge = JumMemberAge
+        }
+        let averageAge = sumOfAges / amoutOfJumMembers
+        document.write(`середній вік ${averageAge.toFixed(0)},найстарший мав ${maxAge} років, наймолотший ${minAge} років`)
+      </script>
+    </main>
+  </body>
+</html>

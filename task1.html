@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nullstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>task2</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="page__container">
+        <div class="task">
+          <div class="task__condition text">
+            6. Інвестор вклав S тис. грн на 20 років під 20% річних, податок складає 5% від суми прибутку. Визначити за допомогою циклів суму, яку він одержить.
+          </div>
+        </div>
+        <script>
+          let sumThatUserPut = parseInt(prompt("яку суму ви вкладаєте на 20 років під 20% річних"))
+          let sumOfProfit = 0
+          let percentInYear = 20
+          let percentOfTax = 5 //
+          for (let i = 0; i < 20; i++) {
+            sumOfProfit += (sumThatUserPut * percentInYear) / 100
+          }
+          let overalSum = sumThatUserPut + sumOfProfit
+          let amountOfTax = (percentOfTax * overalSum) / 100
+          let overalSumWithTax = overalSum - amountOfTax
+          document.write(`получилось число ${overalSumWithTax.toFixed(2)}`)
+        </script>
+      </div>
+    </main>
+  </body>
+</html>

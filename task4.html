@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nullstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>task3</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="page__container task">
+        <div class="task__condition text">
+          30. Спортсмен-лижник в перший день тренування пробіг 10 км. Кожного наступного дня він збільшував довжину пробігу на P% від довжини пробігу попереднього дня (P
+          – дійсне число, 0 < P < 50). Визначити, після якого дня тренування сумарний пробіг лижника за всі дні перевищить 200 км. Вивести знайдену кількість днів K
+          (ціле) і сумарний пробіг S (дійсне число).
+        </div>
+        <script>
+          let dayDistance = 10
+          let overalDistance = 10
+          let amountOfDays = 1
+          let minPercentProgress = 0
+          let maxPercentProgress = 50
+          const distanceThatSkierMustToPass = 200
+          do {
+            amountOfDays++
+            let randomPercent = minPercentProgress + Math.floor(Math.random() * (maxPercentProgress - minPercentProgress + 1))
+            dayDistance += (dayDistance * randomPercent) / 100
+            overalDistance += dayDistance
+          } while (overalDistance < distanceThatSkierMustToPass)
+          document.write(`
+          <br/>
+          тренувався ${amountOfDays} днів, проїхав ${overalDistance.toFixed(2)} K/h`)
+        </script>
+      </div>
+    </main>
+  </body>
+</html>

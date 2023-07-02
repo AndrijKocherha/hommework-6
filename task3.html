@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nullstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>task3</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="page__container task">
+        <div class="task__condition text">
+          13. У закладі освіти повідомляється про початок навчального дня, тривалість уроку, //кількість уроків. Отримати розклад дзвінків на весь навчальний день.
+        </div>
+        <script>
+          let hourOfStartSchoolDay = parseInt(prompt("введіть годину  о котрій годині починається навчальний день"))
+          let minutOfStartSchoolDay = parseInt(
+            prompt("введіть хвилину о  котрій починається шкільний день (якщо уроки починається наприклад рівно 9:00 тоді напишіть 0)")
+          )
+          let lessonDurationInminutes = parseInt(prompt("скільки хвилин триває урок"))
+          let amountOfLessons = parseInt(prompt("кількість уроків"))
+          let lessofFinishHours
+          let lessofFinishMinute
+          let breakDurationInMinutes = parseInt(prompt("тривалість перерви"))
+          for (let lessonNumber = 1; lessonNumber <= amountOfLessons; lessonNumber++) {
+            if (minutOfStartSchoolDay + lessonDurationInminutes >= 60) {
+              console.log("іди нахуй")
+              lessofFinishHours = hourOfStartSchoolDay + Math.floor((minutOfStartSchoolDay + lessonDurationInminutes) / 60)
+              lessofFinishMinute = (lessonDurationInminutes + minutOfStartSchoolDay) % 60
+            } else {
+              lessofFinishHours = hourOfStartSchoolDay
+              lessofFinishMinute = minutOfStartSchoolDay + lessonDurationInminutes
+            }
+            document.write(
+              `<div style="margin-bottom: 10px;">${lessonNumber}) ${hourOfStartSchoolDay}:${minutOfStartSchoolDay} - ${lessofFinishHours}:${lessofFinishMinute}, тривалість перерви ${breakDurationInMinutes}хв</div> <br/>
+              `
+            )
+            if (lessofFinishMinute + breakDurationInMinutes >= 60) {
+              hourOfStartSchoolDay = hourOfStartSchoolDay + Math.floor((lessofFinishMinute + breakDurationInMinutes) / 60)
+              lessofFinishMinute = (lessofFinishMinute + breakDurationInMinutes) % 60
+            } else {
+              hourOfStartSchoolDay = lessofFinishHours
+              minutOfStartSchoolDay = lessofFinishMinute + breakDurationInMinutes
+            }
+          }
+        </script>
+      </div>
+    </main>
+  </body>
+</html>
